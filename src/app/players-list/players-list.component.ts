@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlayersListService } from '../players-list.service';
+import { Player } from '../player.model';
 
 @Component({
   selector: 'app-players-list',
@@ -7,10 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PlayersListComponent implements OnInit {
 
-  @Input() players;
-  constructor() { }
+  players: Array<Player>;
+  constructor( private playersListService: PlayersListService ) { }
 
   ngOnInit() {
+    this.playersListService.socket.on('players',(data) => {
+      this.playersListService.players = data;
+      this.players = this.playersListService.players;
+    })
   }
 
 }

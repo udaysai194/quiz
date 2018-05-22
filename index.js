@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var port = 3000;
+var port = 4000;
 var players = [];
 
 app.use(express.static(path.join(__dirname, "dist")));
@@ -13,19 +13,24 @@ app.use(express.static(path.join(__dirname, "dist")));
 //socket connection
 
 io.on('connection', (socket) => {
-    if(players.length < 5){
-        players.push(socket.id);
-        socket.emit('players', players);
-        io.sockets.emit('players', players);
-        socket.on('disconnect', () => {
-            const i = players.indexOf(socket.id);
-            players.splice(i,1);
-            io.socket.emit('players', players);
-        })
-    }else{
-        socket.disconnect();
+    if(players.length < 4){
+        socket.emit('full',false);
+        socket.on('userData', (data)=>{
+            players.push(data);
+            io.sockets.emit('players', players);
+        });
         
+    }else{
+        socket.emit('full',true);
+        socket.disconnect();
     }
+
+    socket.on('disconnect', () => {
+        const arr = players.filter(obj => obj.id !== socket.id);
+        players = arr;
+        io.sockets.emit('players', players);
+        socket.disconnect();
+    })
 
 }); 
 

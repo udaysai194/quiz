@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as io from 'socket.io-client';
+import { PlayersListService } from './players-list.service';
 
 @Component({
   selector: 'app-root',
@@ -8,25 +8,13 @@ import * as io from 'socket.io-client';
 })
 export class AppComponent {
   title = 'app';
-  socket: SocketIOClient.Socket;
-  players: Array<string>;
-  boolean1: boolean = false;
-
-  constructor() {
-   // this.socket = io.connect('http://localhost:3000');
-   this.socket = io.connect();
+  constructor(private playersListService: PlayersListService) {
+   
   }
 
   ngOnInit() {
 
-      this.socket.on('players',(data)=> {
-        this.players = data;
-      });
 
-      this.socket.on('disconnect',(data) => {
-        this.boolean1 = true;
-      })
-      
    }
 
 

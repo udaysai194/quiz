@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-sm-4">
+      <form (ngSubmit)="onSubmit()" #f="ngForm" >
+        <div class="form-group" >
+          <input type="text" class="form-control" placeholder="username"
+            id="username"
+            [(ngModel)]="username"
+            name="username"
+            required >
+        </div>
+        <div class="form-group" >
+          <input type="text" class="form-control" placeholder="password" 
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            required > 
+        </div>
+        <div class="form-group" >
+          <button class="btn btn-secondary btn-block" type="submit" 
+            [disabled]="!f.valid"
+            [ngClass]="{'btn-outline-success': f.valid}" >LOGIN</button>
+        </div>
+      </form>
+  </div>
+</div>
