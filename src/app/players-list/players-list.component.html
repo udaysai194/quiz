@@ -1,12 +1,15 @@
 <div class="row justify-content-sm-center">
   <div class="col-sm-7">
-      <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center"
-            *ngFor="let player of players"
-            >
-            <h5> {{ player.username }} </h5>
-            <span class="badge badge-success">online</span>
-          </li>
-        </ul>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let player of players">
+        <h6> {{ player.username }} </h6>
+        <span class="badge"
+            [ngClass]="{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}">
+            {{ player.status }}
+        </span>
+      </li>
+    </ul>
+      <button class="btn btn-outline-success btn-block" (click)="onStart()" >Start</button>
   </div>
 </div>

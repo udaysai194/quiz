@@ -1,0 +1,35 @@
+.opt {
+    margin: 5px 5px 0px 0px;
+    background-color: #FAFAFA;
+    text-align: center;
+    border: 1px solid #0D2621;
+    border-radius: 4px;
+}
+.row {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+#clock {
+    background-color: #22D314;  
+    text-align: center;
+    margin: 5px 0px;
+    font-weight: bold;
+    font-size: 20px;   
+
+}
+
+.card-body{
+    padding: 0px 0px 5px 5px!important;
+}
+
+p {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    color: #CDCDCD;
+}
+
+h5 {
+    text-align: center;
+}

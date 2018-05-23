@@ -9,9 +9,7 @@ var players = [];
 
 app.use(express.static(path.join(__dirname, "dist")));
 
-
 //socket connection
-
 io.on('connection', (socket) => {
     if(players.length < 4){
         socket.emit('full',false);
@@ -21,10 +19,34 @@ io.on('connection', (socket) => {
         });
         
     }else{
+        //if sockets are full
         socket.emit('full',true);
         socket.disconnect();
     }
 
+    //updating status to start
+    socket.on('started', (data) => {
+        players = data;
+        io.sockets.emit('players', players);
+        let count = 0;
+        players.forEach(element => {
+            if (element.status == 'started') {
+                count = count+1;
+                if(count == players.length){
+                    io.sockets.emit('letsStart');
+                }else{
+
+                }
+            } else {
+                
+            }
+        });
+
+    })
+
+    
+
+    //if socket closed the connection
     socket.on('disconnect', () => {
         const arr = players.filter(obj => obj.id !== socket.id);
         players = arr;

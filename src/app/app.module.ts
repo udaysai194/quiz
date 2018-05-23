@@ -12,6 +12,7 @@ import { PlayersListService } from './players-list.service';
 import { LoginComponent } from './login/login.component';
 import { FullComponent } from './full/full.component';
 import { GamePlayComponent } from './game-play/game-play.component';
+import { QuestionsListService } from './questions-list.service';
 
 
 
@@ -30,7 +31,7 @@ import { GamePlayComponent } from './game-play/game-play.component';
     FormsModule,
     HttpModule
   ],
-  providers: [PlayersListService],
+  providers: [PlayersListService,QuestionsListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

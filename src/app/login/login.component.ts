@@ -11,7 +11,6 @@ import { PlayersListService } from '../players-list.service';
 })
 export class LoginComponent implements OnInit {
   username = '';
-  password = '';
   constructor(private routes: Router,
               private playersListService: PlayersListService) { }
 
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
         this.playersListService.socket.emit('userData', {
           id: this.playersListService.socket.id,
           username: this.username,
-          password: this.password
+          status: 'not started'
         });
         this.routes.navigate(['players']);
       }

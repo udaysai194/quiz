@@ -7,6 +7,7 @@ export class PlayersListService {
 
   socket: SocketIOClient.Socket;
   players: Array<Player>;
+  
   // boolean1: boolean = false;
 
   constructor() {
