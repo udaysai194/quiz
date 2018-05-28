@@ -3,15 +3,12 @@ var path = require('path');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var cors = require('cors');
 
 var port = process.env.PORT || 8080;
 var players = [];
 var started = false;
 var timer;
 var time = 31;
-
-app.use(cors());
 
 app.use(express.static(path.join(__dirname, "dist")));
 
