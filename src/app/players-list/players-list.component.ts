@@ -27,7 +27,7 @@ export class PlayersListComponent implements OnInit {
 
   onStart(){
     this.playersListService.players.forEach(element => {
-      if (element.id == this.playersListService.socket.id) {
+      if (element.id === this.playersListService.socket.id) {
         element.status = 'started';
         this.playersListService.socket.emit('started', this.playersListService.players);
       }

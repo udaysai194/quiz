@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { FullComponent } from './full/full.component';
 import { GamePlayComponent } from './game-play/game-play.component';
 import { QuestionsListService } from './questions-list.service';
+import { ScorecardComponent } from './scorecard/scorecard.component';
+import { GameStatusComponent } from './game-status/game-status.component';
 
 
 
@@ -23,7 +25,9 @@ import { QuestionsListService } from './questions-list.service';
     PlayersListComponent,
     LoginComponent,
     FullComponent,
-    GamePlayComponent
+    GamePlayComponent,
+    ScorecardComponent,
+    GameStatusComponent
   ],
   imports: [
     BrowserModule,

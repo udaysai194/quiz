@@ -10,7 +10,7 @@ import { PlayersListService } from '../players-list.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = '';
+  username: string = '';
   constructor(private routes: Router,
               private playersListService: PlayersListService) { }
 
@@ -19,18 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.playersListService.socket = io.connect();
-    this.playersListService.socket.on('full', (data) => {
-      if(data){
-        this.routes.navigate(['full']); 
-      }else{
-        this.playersListService.socket.emit('userData', {
-          id: this.playersListService.socket.id,
-          username: this.username,
-          status: 'not started'
-        });
-        this.routes.navigate(['players']);
-      }
-    });
+   this.playersListService.onLogin(this.username);
   }
 }

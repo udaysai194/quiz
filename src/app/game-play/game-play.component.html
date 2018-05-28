@@ -10,18 +10,26 @@
   </div>
   <div class="card-body">
     <div class="d-flex  bd-highlight mb-3 row justify-content-center">
-      <div class="p-2 bd-highlight opt col-md-3">
+      <div class="p-2 bd-highlight opt col-md-3"
+       (click)="selectedAnswer('opt1')"
+       [ngClass]="{'toggle': togglebtn1}" >
         {{ question.opt1 }}
       </div>
-      <div class="p-2 bd-highlight opt col-md-3">
+      <div class="p-2 bd-highlight opt col-md-3"
+       (click)="selectedAnswer('opt2')"
+      [ngClass]="{'toggle': togglebtn2}" >
         {{ question.opt2 }}
       </div>
     </div>
     <div class="d-flex  bd-highlight mb-3 row justify-content-center">
-      <div class="p-2 bd-highlight opt col-md-3">
+      <div class="p-2 bd-highlight opt col-md-3"
+       (click)="selectedAnswer('opt3')" 
+       [ngClass]="{'toggle': togglebtn3}">
         {{ question.opt3 }}
       </div>
-      <div class="p-2 bd-highlight opt col-md-3">
+      <div class="p-2 bd-highlight opt col-md-3"
+       (click)="selectedAnswer('opt4')" 
+       [ngClass]="{'toggle': togglebtn4}">
         {{ question.opt4 }}
       </div>
     </div>
