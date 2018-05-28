@@ -8,22 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./game-status.component.css']
 })
 export class GameStatusComponent implements OnInit {
-  time: number;
-  button: boolean;
+  
   constructor(private playersListService: PlayersListService,
               private routes: Router) { }
 
   ngOnInit() {
-    this.playersListService.socket.on('timer',(time)=>{
-      this.time = time;
-      if(time == 0){
-        this.button = true;
-      }
-    });
-  }
-
-  onNewGame(){
-    this.routes.navigate(['login']);
+    
   }
 
 }

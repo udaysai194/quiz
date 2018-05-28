@@ -256,7 +256,7 @@ module.exports = ".opt {\r\n    margin: 5px 5px 0px 0px;\r\n    background-color
 /***/ "./src/app/game-play/game-play.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>select an option before timer runs out</p>\n<div class=\"row justify-content-center\">\n  <div id=\"clock\" class=\"col-md-1\">\n    00:{{timer}}\n  </div>\n</div>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <h5 class=\"card-title\">{{ question.question }}</h5>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt1')\"\n       [ngClass]=\"{'toggle': togglebtn1}\" >\n        {{ question.opt1 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt2')\"\n      [ngClass]=\"{'toggle': togglebtn2}\" >\n        {{ question.opt2 }}\n      </div>\n    </div>\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt3')\" \n       [ngClass]=\"{'toggle': togglebtn3}\">\n        {{ question.opt3 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt4')\" \n       [ngClass]=\"{'toggle': togglebtn4}\">\n        {{ question.opt4 }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<p>select an option before timer runs out</p>\n<div class=\"row justify-content-center\">\n  <div id=\"clock\" class=\"col-md-1\">\n    00\n  </div>\n</div>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <h5 class=\"card-title\">{{ question.question }}</h5>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt1')\"\n       [ngClass]=\"{'toggle': togglebtn1}\" >\n        {{ question.opt1 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt2')\"\n      [ngClass]=\"{'toggle': togglebtn2}\" >\n        {{ question.opt2 }}\n      </div>\n    </div>\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt3')\" \n       [ngClass]=\"{'toggle': togglebtn3}\">\n        {{ question.opt3 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt4')\" \n       [ngClass]=\"{'toggle': togglebtn4}\">\n        {{ question.opt4 }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -287,45 +287,18 @@ var GamePlayComponent = /** @class */ (function () {
         this.playersListService = playersListService;
         this.questionsListService = questionsListService;
         this.routes = routes;
-        this.timer = 10;
-        this.questionNumber = 0;
-        this.answer = '';
-        this.score = 0;
+        this.question = {
+            question: ' Which acts like a fastest Switching device ? ',
+            opt1: 'MOSFET',
+            opt2: 'SCR',
+            opt3: 'BT',
+            opt4: 'P-N',
+            ans: 'opt1'
+        };
     }
     GamePlayComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.question = this.questionsListService.questions[this.questionNumber];
-        this.loop = setInterval(function () {
-            if (_this.timer == 0) {
-                _this.timer = 10;
-                _this.togglebtn1 = false;
-                _this.togglebtn2 = false;
-                _this.togglebtn3 = false;
-                _this.togglebtn4 = false;
-                if (_this.question.ans === _this.answer) {
-                    _this.score = _this.score + 1;
-                    _this.playersListService.socket.emit('score', _this.score);
-                }
-                else {
-                    _this.score = _this.score;
-                    _this.playersListService.socket.emit('score', _this.score);
-                }
-                _this.questionNumber = _this.questionNumber + 1;
-                _this.question = _this.questionsListService.questions[_this.questionNumber];
-                if (_this.questionNumber == 3) {
-                    _this.routes.navigate(['scorecard']);
-                    _this.playersListService.socket.emit('finished', false);
-                    _this.playersListService.socket.disconnect();
-                    clearInterval(_this.loop);
-                }
-            }
-            else {
-                _this.timer = _this.timer - 1;
-            }
-        }, 1000);
     };
     GamePlayComponent.prototype.selectedAnswer = function (ans) {
-        this.answer = ans;
         if (ans === 'opt1') {
             this.togglebtn1 = true;
             this.togglebtn2 = false;
@@ -378,7 +351,7 @@ module.exports = "h5,h6,h2 {\r\n    text-align: center;\r\n}\r\n\r\nspan{\r\n   
 /***/ "./src/app/game-status/game-status.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>\n  game is already started\n</h2>\n<h2>\n  please wait for some time or come back later\n</h2>\n<h5>new game starts in : <span>00 : {{time}}</span>\n</h5>\n<div class=\"row justify-content-center\">\n    <div class=\"col-sm-2\">\n      <button class=\"btn btn-primary btn-block\" *ngIf=\"button\" (click)=\"onNewGame()\">Start new game</button>\n    </div>\n</div>\n"
+module.exports = "<h2>\n  game is already started\n</h2>\n<h2>\n  please wait for some time or come back later\n</h2>\n<h5>new game starts in : <span>00</span>\n</h5>\n<div class=\"row justify-content-center\">\n    <div class=\"col-sm-2\">\n      <button class=\"btn btn-primary btn-block\">Start new game</button>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -408,16 +381,6 @@ var GameStatusComponent = /** @class */ (function () {
         this.routes = routes;
     }
     GameStatusComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.playersListService.socket.on('timer', function (time) {
-            _this.time = time;
-            if (time == 0) {
-                _this.button = true;
-            }
-        });
-    };
-    GameStatusComponent.prototype.onNewGame = function () {
-        this.routes.navigate(['login']);
     };
     GameStatusComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -445,7 +408,7 @@ module.exports = "input.ng-invalid.ng-touched {\r\n    border: 1px solid red;\r\
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-4\">\n      <form (ngSubmit)=\"onSubmit()\" #f=\"ngForm\" >\n        <div class=\"form-group\" >\n          <input type=\"text\" class=\"form-control\" placeholder=\"username\"\n            id=\"username\"\n            [(ngModel)]=\"username\"\n            name=\"username\"\n            required >\n        </div>\n        <div class=\"form-group\" >\n          <button class=\"btn btn-secondary btn-block\" type=\"submit\" \n            [disabled]=\"!f.valid\"\n            [ngClass]=\"{'btn-outline-success': f.valid}\" >LOGIN</button>\n        </div>\n      </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-4\">\n      <form (ngSubmit)=\"onSubmit()\" #f=\"ngForm\" >\n        <div class=\"form-group\" >\n          <input type=\"text\" class=\"form-control\" placeholder=\"name\"\n            id=\"username\"\n            [(ngModel)]=\"username\"\n            name=\"username\"\n            required >\n        </div>\n        <div class=\"form-group\" >\n          <button class=\"btn btn-secondary btn-block\" type=\"submit\" \n            [disabled]=\"!f.valid\"\n            [ngClass]=\"{'btn-outline-success': f.valid}\" >LOGIN</button>\n        </div>\n      </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -479,6 +442,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.onSubmit = function () {
         this.playersListService.onLogin(this.username);
+        this.routes.navigate(['players']);
     };
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -568,38 +532,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var PlayersListService = /** @class */ (function () {
-    // boolean1: boolean = false;
     function PlayersListService(routes) {
         this.routes = routes;
         this.started = false;
         // this.socket = io.connect('http://localhost:3000');
-        //  this.socket = io.connect();
+        this.socket = __WEBPACK_IMPORTED_MODULE_1_socket_io_client__["connect"]();
     }
     PlayersListService.prototype.onLogin = function (username) {
-        var _this = this;
-        this.socket = __WEBPACK_IMPORTED_MODULE_1_socket_io_client__["connect"]();
-        this.socket.on('gameStatus', function (data) {
-            _this.started = data;
+        console.log('connected: ' + this.socket.id);
+        this.socket.emit('addPlayer', {
+            id: this.socket.id,
+            username: username,
+            status: 'not started',
+            score: 0
         });
-        this.socket.on('full', function (data) {
-            if (data) {
-                _this.routes.navigate(['full']);
-            }
-            else {
-                if (!_this.started) {
-                    _this.socket.emit('userData', {
-                        id: _this.socket.id,
-                        username: username,
-                        status: 'not started',
-                        score: 0
-                    });
-                    _this.routes.navigate(['players']);
-                }
-                else {
-                    _this.routes.navigate(['started']);
-                }
-            }
-        });
+        console.log('emmitted : ' + JSON.stringify({
+            id: this.socket.id,
+            username: username,
+            status: 'not started',
+            score: 0
+        }));
+    };
+    PlayersListService.prototype.setPlayers = function (data) {
+        this.players = data;
     };
     PlayersListService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -615,14 +570,14 @@ var PlayersListService = /** @class */ (function () {
 /***/ "./src/app/players-list/players-list.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "button {\r\n    margin: 5px 0px;    \r\n}"
+module.exports = "button {\r\n    margin: 5px 0px;    \r\n}\r\n\r\n.self {\r\n    background-color: darkseagreen;\r\n}"
 
 /***/ }),
 
 /***/ "./src/app/players-list/players-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-sm-center\">\n  <div class=\"col-sm-7\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\">\n        <h6> {{ player.username }} </h6>\n        <span class=\"badge\"\n            [ngClass]=\"{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}\">\n            {{ player.status }}\n        </span>\n      </li>\n    </ul>\n      <button class=\"btn btn-outline-success btn-block\" (click)=\"onStart()\" >Start</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row justify-content-sm-center\">\n  <div class=\"col-sm-7\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" [ngClass]=\"{'self': player.id===playersListService.socket.id}\">\n        <h6> {{ player.username }} </h6>\n        <span class=\"badge\"\n            [ngClass]=\"{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}\">\n            {{ player.status }}\n        </span>\n      </li>\n    </ul>\n      <button class=\"btn btn-outline-success btn-block\" (click)=\"onStart()\" >Start</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -650,23 +605,34 @@ var PlayersListComponent = /** @class */ (function () {
     function PlayersListComponent(playersListService, routes) {
         this.playersListService = playersListService;
         this.routes = routes;
+        this.selfClass = false;
     }
     PlayersListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.playersListService.socket.on('players', function (data) {
-            _this.playersListService.players = data;
-            _this.players = _this.playersListService.players;
+        this.playersListService.socket.on('playersList', function (data) {
+            _this.players = data;
+            _this.playersListService.setPlayers(data);
+            _this.players.forEach(function (obj) {
+                if (obj.id === _this.playersListService.socket.id) {
+                    _this.selfClass = true;
+                }
+            });
         });
-        this.playersListService.socket.on('letsStart', function () {
-            _this.routes.navigate(['game-play']);
+        this.playersListService.socket.on('startGame', function () {
+            setTimeout(function () {
+                console.log('game started');
+                _this.routes.navigate(['game-play']);
+            }, 1500);
         });
     };
     PlayersListComponent.prototype.onStart = function () {
         var _this = this;
-        this.playersListService.players.forEach(function (element) {
-            if (element.id === _this.playersListService.socket.id) {
-                element.status = 'started';
-                _this.playersListService.socket.emit('started', _this.playersListService.players);
+        this.players.forEach(function (obj, index) {
+            var status;
+            if (obj.id === _this.playersListService.socket.id) {
+                obj.status = 'started';
+                console.log(JSON.stringify(_this.players));
+                _this.playersListService.socket.emit('onStart', _this.players);
             }
         });
     };
@@ -867,17 +833,8 @@ var ScorecardComponent = /** @class */ (function () {
         this.playersListService = playersListService;
     }
     ScorecardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.players = this.playersListService.players;
-        this.playersListService.socket.on('scorecard', function (players) {
-            _this.players = players;
-        });
-        this.playersListService.socket.on('sendData', function (data) {
-            _this.players = data;
-        });
     };
     ScorecardComponent.prototype.refreshScore = function () {
-        this.playersListService.socket.emit('getData');
     };
     ScorecardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

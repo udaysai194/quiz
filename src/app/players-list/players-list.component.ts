@@ -11,27 +11,39 @@ import { Router } from '@angular/router';
 export class PlayersListComponent implements OnInit {
 
   players: Array<Player>;
+  selfClass: boolean = false;
   constructor( private playersListService: PlayersListService,
   private routes: Router) { }
 
   ngOnInit() {
-      this.playersListService.socket.on('players',(data) => {
-      this.playersListService.players = data;
-      this.players = this.playersListService.players;
+    this.playersListService.socket.on('playersList', (data)=>{
+      this.players = data;
+      this.playersListService.setPlayers(data);
+      this.players.forEach(obj => {
+        if(obj.id === this.playersListService.socket.id){
+          this.selfClass = true;
+        }
+      });
     });
 
-    this.playersListService.socket.on('letsStart', () => {
-      this.routes.navigate(['game-play']);
+    this.playersListService.socket.on('startGame', ()=>{
+      setTimeout(() => {
+        console.log('game started');
+        this.routes.navigate(['game-play']);
+      }, 1500);
     });
+
   }
 
   onStart(){
-    this.playersListService.players.forEach(element => {
-      if (element.id === this.playersListService.socket.id) {
-        element.status = 'started';
-        this.playersListService.socket.emit('started', this.playersListService.players);
-      }
-    });
+      this.players.forEach((obj,index) => {
+        let status;
+        if(obj.id === this.playersListService.socket.id){
+          obj.status = 'started';
+          console.log(JSON.stringify(this.players));
+          this.playersListService.socket.emit('onStart', this.players);
+        }
+      });
   }
 
 }

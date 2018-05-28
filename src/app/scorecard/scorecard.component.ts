@@ -12,17 +12,9 @@ export class ScorecardComponent implements OnInit {
   constructor(private playersListService: PlayersListService) {}
 
   ngOnInit() {
-    this.players = this.playersListService.players;
-    this.playersListService.socket.on('scorecard', (players)=> {
-      this.players = players;
-    });
-    this.playersListService.socket.on('sendData', (data)=> {
-      this.players = data;
-    });
   }
 
   refreshScore(){
-    this.playersListService.socket.emit('getData');
   }
 
 }

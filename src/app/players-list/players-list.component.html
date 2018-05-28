@@ -2,7 +2,7 @@
   <div class="col-sm-7">
     <ul class="list-group">
       <li class="list-group-item d-flex justify-content-between align-items-center"
-        *ngFor="let player of players">
+        *ngFor="let player of players" [ngClass]="{'self': player.id===playersListService.socket.id}">
         <h6> {{ player.username }} </h6>
         <span class="badge"
             [ngClass]="{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}">

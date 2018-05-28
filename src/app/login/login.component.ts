@@ -20,5 +20,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
    this.playersListService.onLogin(this.username);
+   this.routes.navigate(['players']);
   }
 }

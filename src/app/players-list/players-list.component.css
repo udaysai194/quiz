@@ -1,3 +1,7 @@
 button {
     margin: 5px 0px;    
 }
+
+.self {
+    background-color: darkseagreen;
+}
