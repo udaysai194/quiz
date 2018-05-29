@@ -32,8 +32,9 @@ export class PlayersListComponent implements OnInit {
 
     this.playersListService.socket.on('startGame', ()=>{
       setTimeout(() => {
-        console.log('game started');
-        this.routes.navigate(['game-play']);
+        if (!this.playersListService.finished) {
+          this.routes.navigate(['game-play']);
+        }
       }, 500);
     });
 

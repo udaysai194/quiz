@@ -227,35 +227,46 @@ var GamePlayComponent = /** @class */ (function () {
         this.routes = routes;
         this.questionNumber = 0;
         this.answer = '';
-        this.time = 15;
+        this.time = 12;
         this.score = 0;
     }
     GamePlayComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.question = this.questionsListService.questions[this.questionNumber];
         this.timer = setInterval(function () {
-            --_this.time;
+            console.log(_this.time + ' before');
+            console.log(_this.time + ' after');
+            _this.time--;
             if (_this.time === 0) {
-                if (_this.questionNumber === 9) {
+                console.log('main score : ' + _this.score);
+                console.log('main time : ' + _this.time);
+                console.log('main question : ' + _this.questionNumber);
+                if (_this.answer === _this.question.ans) {
+                    console.log('score' + _this.score);
+                    _this.score++;
+                }
+                if (_this.questionNumber > 9) {
                     clearInterval(_this.timer);
-                    _this.playersListService.socket.emit('updateScore', _this.score);
+                    _this.playersListService.finished = true;
+                    console.log('finished');
+                    _this.playersListService.addToScoreCard(_this.score);
                     _this.routes.navigate(['scorecard']);
                 }
                 else {
-                    if (_this.answer == _this.question.ans) {
-                        _this.score = _this.score + 1;
-                    }
-                    else {
-                        _this.score = _this.score;
-                    }
-                    _this.time = 10;
-                    ++_this.questionNumber;
+                    console.log(' score : ' + _this.score);
+                    console.log(' time : ' + _this.time);
+                    console.log(' question : ' + _this.questionNumber);
+                    _this.time = 12;
+                    _this.answer = '';
+                    _this.questionNumber++;
                     _this.question = _this.questionsListService.questions[_this.questionNumber];
                     _this.togglebtn1 = false;
                     _this.togglebtn2 = false;
                     _this.togglebtn3 = false;
                     _this.togglebtn4 = false;
-                    _this.answer = '';
+                    console.log('af score : ' + _this.score);
+                    console.log('af time : ' + _this.time);
+                    console.log('af question : ' + _this.questionNumber);
                 }
             }
         }, 1000);
@@ -452,7 +463,9 @@ var PlayersListService = /** @class */ (function () {
         this.routes = routes;
         this.started = false;
         this.username = '';
+        this.count = 0;
         this.name = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.finished = false;
         // this.socket = io.connect('http://localhost:3000');
         this.socket = __WEBPACK_IMPORTED_MODULE_1_socket_io_client__["connect"]();
     }
@@ -469,6 +482,13 @@ var PlayersListService = /** @class */ (function () {
     };
     PlayersListService.prototype.setPlayers = function (data) {
         this.players = data;
+    };
+    PlayersListService.prototype.addToScoreCard = function (score) {
+        this.socket.emit('updateScoreCard', {
+            id: this.socket.id,
+            username: this.username,
+            score: score
+        });
     };
     PlayersListService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -538,8 +558,9 @@ var PlayersListComponent = /** @class */ (function () {
         });
         this.playersListService.socket.on('startGame', function () {
             setTimeout(function () {
-                console.log('game started');
-                _this.routes.navigate(['game-play']);
+                if (!_this.playersListService.finished) {
+                    _this.routes.navigate(['game-play']);
+                }
             }, 500);
         });
     };
@@ -723,7 +744,7 @@ module.exports = ""
 /***/ "./src/app/scorecard/scorecard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-8\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" >\n        {{ player?.username }}\n        <span class=\"badge badge-primary badge-pill\">{{ player?.score }}</span>\n      </li>\n    </ul>\n    <div class=\"row justify-content-center\" style=\"margin-top: 10px;\">\n      <div class=\"col-sm-6\"><button class=\"btn btn-success btn-block\" routerLink=\"/login\">EXIT</button></div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-8\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" >\n        {{ player?.username }}\n        <span class=\"badge badge-primary badge-pill\">{{ player?.score }}</span>\n      </li>\n    </ul>\n    <div class=\"row justify-content-center\" style=\"margin-top: 10px;\">\n      <div class=\"col-sm-6\"><button class=\"btn btn-success btn-block\" (click)=\"onExit()\">EXIT</button></div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -734,6 +755,7 @@ module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScorecardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__players_list_service__ = __webpack_require__("./src/app/players-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -745,20 +767,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ScorecardComponent = /** @class */ (function () {
-    function ScorecardComponent(playersListService) {
+    function ScorecardComponent(playersListService, routes) {
         this.playersListService = playersListService;
+        this.routes = routes;
+        this.count = 0;
     }
     ScorecardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.playersListService.socket.on('updateScores', function (data) {
-            console.log('in score card before assign: ' + JSON.stringify(data));
+        this.playersListService.socket.on('scoreCard', function (data) {
             _this.players = data;
-            console.log('in score card after assign: ' + JSON.stringify(_this.players));
-            setTimeout(function () {
-                _this.playersListService.socket.close();
-            }, 20);
         });
+    };
+    ScorecardComponent.prototype.onExit = function () {
+        this.playersListService.finished = false;
+        this.playersListService.socket.close();
+        this.routes.navigate(['login']);
     };
     ScorecardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -766,7 +791,8 @@ var ScorecardComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/scorecard/scorecard.component.html"),
             styles: [__webpack_require__("./src/app/scorecard/scorecard.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__players_list_service__["a" /* PlayersListService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__players_list_service__["a" /* PlayersListService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
     ], ScorecardComponent);
     return ScorecardComponent;
 }());

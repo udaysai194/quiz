@@ -11,7 +11,9 @@ export class PlayersListService {
   players: Array<Player>;
   started: boolean = false;
   username: string = '';
+  count: number = 0;
   name = new Subject();
+  finished: boolean = false;
 
   constructor(private routes: Router) {
     // this.socket = io.connect('http://localhost:3000');
@@ -33,6 +35,14 @@ export class PlayersListService {
 
   setPlayers(data){
     this.players = data;
+  }
+
+  addToScoreCard(score){
+    this.socket.emit('updateScoreCard', {
+      id: this.socket.id,
+      username: this.username,
+      score: score
+    });
   }
 
 }

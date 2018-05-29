@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player.model';
 import { PlayersListService } from '../players-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scorecard',
@@ -8,19 +9,25 @@ import { PlayersListService } from '../players-list.service';
   styleUrls: ['./scorecard.component.css']
 })
 export class ScorecardComponent implements OnInit {
-  players: Array<Player>;
-  constructor(private playersListService: PlayersListService) {}
+  players: Array<{
+      id: string,
+      username: string,
+      score: number
+    }>;
+  count: number = 0;
+  constructor(private playersListService: PlayersListService,
+              private routes: Router) {}
 
   ngOnInit() {
-    this.playersListService.socket.on('updateScores', (data)=>{
-      console.log('in score card before assign: '+JSON.stringify(data));
+    this.playersListService.socket.on('scoreCard', (data)=>{
       this.players = data;
-      console.log('in score card after assign: '+JSON.stringify(this.players));
-      
-      setTimeout(() => {
-        this.playersListService.socket.close();
-      }, 20);
     });
+  }
+
+  onExit(){
+    this.playersListService.finished = false;
+    this.playersListService.socket.close();
+    this.routes.navigate(['login']);
   }
 
 }

@@ -13,7 +13,7 @@ export class GamePlayComponent implements OnInit {
   questionNumber: number = 0;
   question: Question;
   answer: string = '';
-  time: number = 15;
+  time: number = 12;
   timer: any;
   score: number = 0;
   togglebtn1: boolean;
@@ -29,26 +29,38 @@ export class GamePlayComponent implements OnInit {
   ngOnInit() {
     this.question = this.questionsListService.questions[this.questionNumber];
     this.timer = setInterval(() => {
-      --this.time;
+      console.log(this.time+' before');
+      console.log(this.time+' after');
+      this.time--;
       if (this.time === 0) {
-        if (this.questionNumber === 9) {
+          console.log('main score : '+this.score);
+          console.log('main time : '+this.time);
+          console.log('main question : '+this.questionNumber);
+        if (this.answer === this.question.ans) {
+          console.log('score'+this.score);
+          this.score++;
+        }
+        if (this.questionNumber > 9) {
           clearInterval(this.timer);
-          this.playersListService.socket.emit('updateScore', this.score);
+          this.playersListService.finished = true;
+          console.log('finished');
+          this.playersListService.addToScoreCard(this.score);
           this.routes.navigate(['scorecard']);
         }else{
-          if (this.answer == this.question.ans) {
-            this.score = this.score+1;
-          }else{
-            this.score = this.score;
-          }
-          this.time = 10;
-          ++this.questionNumber;
+          console.log(' score : '+this.score);
+          console.log(' time : '+this.time);
+          console.log(' question : '+this.questionNumber);
+          this.time = 12;
+          this.answer = '';
+          this.questionNumber++;
           this.question = this.questionsListService.questions[this.questionNumber];
           this.togglebtn1 = false;
           this.togglebtn2 = false;
           this.togglebtn3 = false;
           this.togglebtn4 = false;
-          this.answer = '';
+          console.log('af score : '+this.score);
+          console.log('af time : '+this.time);
+          console.log('af question : '+this.questionNumber);
         }
       }
     }, 1000);
