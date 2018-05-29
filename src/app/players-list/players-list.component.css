@@ -5,3 +5,8 @@ button {
 .self {
     background-color: darkseagreen;
 }
+
+p{
+    color: darkgrey;
+    text-align: center;
+}

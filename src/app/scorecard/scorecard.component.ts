@@ -12,9 +12,15 @@ export class ScorecardComponent implements OnInit {
   constructor(private playersListService: PlayersListService) {}
 
   ngOnInit() {
-  }
-
-  refreshScore(){
+    this.playersListService.socket.on('updateScores', (data)=>{
+      console.log('in score card before assign: '+JSON.stringify(data));
+      this.players = data;
+      console.log('in score card after assign: '+JSON.stringify(this.players));
+      
+      setTimeout(() => {
+        this.playersListService.socket.close();
+      }, 20);
+    });
   }
 
 }

@@ -10,32 +10,29 @@ export class PlayersListService {
   socket: SocketIOClient.Socket;
   players: Array<Player>;
   started: boolean = false;
+  username: string = '';
+  name = new Subject();
 
   constructor(private routes: Router) {
     // this.socket = io.connect('http://localhost:3000');
   this.socket = io.connect();
+  
   }
 
   onLogin(username){
     console.log('connected: '+this.socket.id);
+    this.username = username;
+    this.name.next(username);
     this.socket.emit('addPlayer', {
       id: this.socket.id,
       username: username,
       status: 'not started',
       score: 0
     });
-
-    console.log('emmitted : ' + JSON.stringify({
-      id: this.socket.id,
-      username: username,
-      status: 'not started',
-      score: 0
-    }));
   }
 
   setPlayers(data){
     this.players = data;
   }
-
 
 }

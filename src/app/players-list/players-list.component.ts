@@ -12,6 +12,7 @@ export class PlayersListComponent implements OnInit {
 
   players: Array<Player>;
   selfClass: boolean = false;
+  visibleStartBtn: boolean = false;
   constructor( private playersListService: PlayersListService,
   private routes: Router) { }
 
@@ -24,13 +25,16 @@ export class PlayersListComponent implements OnInit {
           this.selfClass = true;
         }
       });
+      if (this.players.length > 1) {
+        this.visibleStartBtn = true;
+      }
     });
 
     this.playersListService.socket.on('startGame', ()=>{
       setTimeout(() => {
         console.log('game started');
         this.routes.navigate(['game-play']);
-      }, 1500);
+      }, 500);
     });
 
   }
@@ -40,7 +44,6 @@ export class PlayersListComponent implements OnInit {
         let status;
         if(obj.id === this.playersListService.socket.id){
           obj.status = 'started';
-          console.log(JSON.stringify(this.players));
           this.playersListService.socket.emit('onStart', this.players);
         }
       });

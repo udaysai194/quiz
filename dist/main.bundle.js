@@ -26,10 +26,8 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__players_list_players_list_component__ = __webpack_require__("./src/app/players-list/players-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__full_full_component__ = __webpack_require__("./src/app/full/full.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__game_play_game_play_component__ = __webpack_require__("./src/app/game-play/game-play.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__scorecard_scorecard_component__ = __webpack_require__("./src/app/scorecard/scorecard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__game_status_game_status_component__ = __webpack_require__("./src/app/game-status/game-status.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_play_game_play_component__ = __webpack_require__("./src/app/game-play/game-play.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__scorecard_scorecard_component__ = __webpack_require__("./src/app/scorecard/scorecard.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -42,16 +40,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 var routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'players', component: __WEBPACK_IMPORTED_MODULE_2__players_list_players_list_component__["a" /* PlayersListComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__login_login_component__["a" /* LoginComponent */] },
-    { path: 'full', component: __WEBPACK_IMPORTED_MODULE_4__full_full_component__["a" /* FullComponent */] },
-    { path: 'game-play', component: __WEBPACK_IMPORTED_MODULE_5__game_play_game_play_component__["a" /* GamePlayComponent */] },
-    { path: 'scorecard', component: __WEBPACK_IMPORTED_MODULE_6__scorecard_scorecard_component__["a" /* ScorecardComponent */] },
-    { path: 'started', component: __WEBPACK_IMPORTED_MODULE_7__game_status_game_status_component__["a" /* GameStatusComponent */] }
+    { path: 'game-play', component: __WEBPACK_IMPORTED_MODULE_4__game_play_game_play_component__["a" /* GamePlayComponent */] },
+    { path: 'scorecard', component: __WEBPACK_IMPORTED_MODULE_5__scorecard_scorecard_component__["a" /* ScorecardComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -138,19 +132,15 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__players_list_players_list_component__ = __webpack_require__("./src/app/players-list/players-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__players_list_service__ = __webpack_require__("./src/app/players-list.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__full_full_component__ = __webpack_require__("./src/app/full/full.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__game_play_game_play_component__ = __webpack_require__("./src/app/game-play/game-play.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__questions_list_service__ = __webpack_require__("./src/app/questions-list.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__scorecard_scorecard_component__ = __webpack_require__("./src/app/scorecard/scorecard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__game_status_game_status_component__ = __webpack_require__("./src/app/game-status/game-status.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__game_play_game_play_component__ = __webpack_require__("./src/app/game-play/game-play.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__questions_list_service__ = __webpack_require__("./src/app/questions-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__scorecard_scorecard_component__ = __webpack_require__("./src/app/scorecard/scorecard.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -174,10 +164,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__navbar_navbar_component__["a" /* NavbarComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__players_list_players_list_component__["a" /* PlayersListComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__full_full_component__["a" /* FullComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__game_play_game_play_component__["a" /* GamePlayComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__scorecard_scorecard_component__["a" /* ScorecardComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__game_status_game_status_component__["a" /* GameStatusComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__game_play_game_play_component__["a" /* GamePlayComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__scorecard_scorecard_component__["a" /* ScorecardComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -185,61 +173,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__players_list_service__["a" /* PlayersListService */], __WEBPACK_IMPORTED_MODULE_12__questions_list_service__["a" /* QuestionsListService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_8__players_list_service__["a" /* PlayersListService */], __WEBPACK_IMPORTED_MODULE_11__questions_list_service__["a" /* QuestionsListService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/full/full.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/full/full.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h1>sockets are full</h1>"
-
-/***/ }),
-
-/***/ "./src/app/full/full.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FullComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var FullComponent = /** @class */ (function () {
-    function FullComponent() {
-    }
-    FullComponent.prototype.ngOnInit = function () {
-    };
-    FullComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-full',
-            template: __webpack_require__("./src/app/full/full.component.html"),
-            styles: [__webpack_require__("./src/app/full/full.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FullComponent);
-    return FullComponent;
 }());
 
 
@@ -256,7 +194,7 @@ module.exports = ".opt {\r\n    margin: 5px 5px 0px 0px;\r\n    background-color
 /***/ "./src/app/game-play/game-play.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>select an option before timer runs out</p>\n<div class=\"row justify-content-center\">\n  <div id=\"clock\" class=\"col-md-1\">\n    00\n  </div>\n</div>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <h5 class=\"card-title\">{{ question.question }}</h5>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt1')\"\n       [ngClass]=\"{'toggle': togglebtn1}\" >\n        {{ question.opt1 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt2')\"\n      [ngClass]=\"{'toggle': togglebtn2}\" >\n        {{ question.opt2 }}\n      </div>\n    </div>\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt3')\" \n       [ngClass]=\"{'toggle': togglebtn3}\">\n        {{ question.opt3 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt4')\" \n       [ngClass]=\"{'toggle': togglebtn4}\">\n        {{ question.opt4 }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<p>select an option before timer runs out</p>\n<div class=\"row justify-content-center\">\n  <div id=\"clock\" class=\"col-md-1\">\n    00 : {{time}}\n  </div>\n</div>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <h5 class=\"card-title\">{{ question.question }}</h5>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt1')\"\n       [ngClass]=\"{'toggle': togglebtn1}\" >\n        {{ question.opt1 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt2')\"\n      [ngClass]=\"{'toggle': togglebtn2}\" >\n        {{ question.opt2 }}\n      </div>\n    </div>\n    <div class=\"d-flex  bd-highlight mb-3 row justify-content-center\">\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt3')\" \n       [ngClass]=\"{'toggle': togglebtn3}\">\n        {{ question.opt3 }}\n      </div>\n      <div class=\"p-2 bd-highlight opt col-md-3\"\n       (click)=\"selectedAnswer('opt4')\" \n       [ngClass]=\"{'toggle': togglebtn4}\">\n        {{ question.opt4 }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -287,18 +225,43 @@ var GamePlayComponent = /** @class */ (function () {
         this.playersListService = playersListService;
         this.questionsListService = questionsListService;
         this.routes = routes;
-        this.question = {
-            question: ' Which acts like a fastest Switching device ? ',
-            opt1: 'MOSFET',
-            opt2: 'SCR',
-            opt3: 'BT',
-            opt4: 'P-N',
-            ans: 'opt1'
-        };
+        this.questionNumber = 0;
+        this.answer = '';
+        this.time = 15;
+        this.score = 0;
     }
     GamePlayComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.question = this.questionsListService.questions[this.questionNumber];
+        this.timer = setInterval(function () {
+            --_this.time;
+            if (_this.time === 0) {
+                if (_this.questionNumber === 9) {
+                    clearInterval(_this.timer);
+                    _this.playersListService.socket.emit('updateScore', _this.score);
+                    _this.routes.navigate(['scorecard']);
+                }
+                else {
+                    if (_this.answer == _this.question.ans) {
+                        _this.score = _this.score + 1;
+                    }
+                    else {
+                        _this.score = _this.score;
+                    }
+                    _this.time = 10;
+                    ++_this.questionNumber;
+                    _this.question = _this.questionsListService.questions[_this.questionNumber];
+                    _this.togglebtn1 = false;
+                    _this.togglebtn2 = false;
+                    _this.togglebtn3 = false;
+                    _this.togglebtn4 = false;
+                    _this.answer = '';
+                }
+            }
+        }, 1000);
     };
     GamePlayComponent.prototype.selectedAnswer = function (ans) {
+        this.answer = ans;
         if (ans === 'opt1') {
             this.togglebtn1 = true;
             this.togglebtn2 = false;
@@ -335,63 +298,6 @@ var GamePlayComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
     ], GamePlayComponent);
     return GamePlayComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/game-status/game-status.component.css":
-/***/ (function(module, exports) {
-
-module.exports = "h5,h6,h2 {\r\n    text-align: center;\r\n}\r\n\r\nspan{\r\n    background-color: firebrick;\r\n    padding: 0px 10px;\r\n}\r\n\r\nbutton {\r\n    margin-top: 15px;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/game-status/game-status.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>\n  game is already started\n</h2>\n<h2>\n  please wait for some time or come back later\n</h2>\n<h5>new game starts in : <span>00</span>\n</h5>\n<div class=\"row justify-content-center\">\n    <div class=\"col-sm-2\">\n      <button class=\"btn btn-primary btn-block\">Start new game</button>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/game-status/game-status.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameStatusComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__players_list_service__ = __webpack_require__("./src/app/players-list.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var GameStatusComponent = /** @class */ (function () {
-    function GameStatusComponent(playersListService, routes) {
-        this.playersListService = playersListService;
-        this.routes = routes;
-    }
-    GameStatusComponent.prototype.ngOnInit = function () {
-    };
-    GameStatusComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-game-status',
-            template: __webpack_require__("./src/app/game-status/game-status.component.html"),
-            styles: [__webpack_require__("./src/app/game-status/game-status.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__players_list_service__["a" /* PlayersListService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
-    ], GameStatusComponent);
-    return GameStatusComponent;
 }());
 
 
@@ -470,7 +376,7 @@ module.exports = ""
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light justify-content-center\" style=\"background-color: #13977B\">\n  <div class=\"container\">\n    <span class=\"navbar-brand mb-0 h1\">QUIZ</span>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-light justify-content-center\" style=\"background-color: #13977B\">\n  <div class=\"container\">\n    <span class=\"navbar-brand mb-0 h1\" style=\"float: left;\">QUIZ</span>\n    <span style=\"float: right;\">{{ msg }}</span>\n    <div class=\"clearfix\"></div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -480,6 +386,7 @@ module.exports = "<nav class=\"navbar navbar-light justify-content-center\" styl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__players_list_service__ = __webpack_require__("./src/app/players-list.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -490,10 +397,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent() {
+    function NavbarComponent(playersListService) {
+        this.playersListService = playersListService;
+        this.msg = '';
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.playersListService.name.subscribe(function (data) {
+            _this.msg = 'Hi! ' + data;
+        });
     };
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -501,7 +415,7 @@ var NavbarComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__players_list_service__["a" /* PlayersListService */]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -519,6 +433,7 @@ var NavbarComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client__ = __webpack_require__("./node_modules/socket.io-client/lib/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_socket_io_client__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -531,27 +446,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PlayersListService = /** @class */ (function () {
     function PlayersListService(routes) {
         this.routes = routes;
         this.started = false;
+        this.username = '';
+        this.name = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
         // this.socket = io.connect('http://localhost:3000');
         this.socket = __WEBPACK_IMPORTED_MODULE_1_socket_io_client__["connect"]();
     }
     PlayersListService.prototype.onLogin = function (username) {
         console.log('connected: ' + this.socket.id);
+        this.username = username;
+        this.name.next(username);
         this.socket.emit('addPlayer', {
             id: this.socket.id,
             username: username,
             status: 'not started',
             score: 0
         });
-        console.log('emmitted : ' + JSON.stringify({
-            id: this.socket.id,
-            username: username,
-            status: 'not started',
-            score: 0
-        }));
     };
     PlayersListService.prototype.setPlayers = function (data) {
         this.players = data;
@@ -570,14 +484,14 @@ var PlayersListService = /** @class */ (function () {
 /***/ "./src/app/players-list/players-list.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "button {\r\n    margin: 5px 0px;    \r\n}\r\n\r\n.self {\r\n    background-color: darkseagreen;\r\n}"
+module.exports = "button {\r\n    margin: 5px 0px;    \r\n}\r\n\r\n.self {\r\n    background-color: darkseagreen;\r\n}\r\n\r\np{\r\n    color: darkgrey;\r\n    text-align: center;\r\n}"
 
 /***/ }),
 
 /***/ "./src/app/players-list/players-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-sm-center\">\n  <div class=\"col-sm-7\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" [ngClass]=\"{'self': player.id===playersListService.socket.id}\">\n        <h6> {{ player.username }} </h6>\n        <span class=\"badge\"\n            [ngClass]=\"{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}\">\n            {{ player.status }}\n        </span>\n      </li>\n    </ul>\n      <button class=\"btn btn-outline-success btn-block\" (click)=\"onStart()\" >Start</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row justify-content-sm-center\">\n  <div class=\"col-sm-7\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" [ngClass]=\"{'self': player.id===playersListService.socket.id}\">\n        <h6> {{ player.username }} </h6>\n        <span class=\"badge\"\n            [ngClass]=\"{'badge-danger': player.status === 'not started', 'badge-success': player.status === 'started'}\">\n            {{ player.status }}\n        </span>\n      </li>\n    </ul>\n      <button class=\"btn btn-outline-success btn-block\" (click)=\"onStart()\" [disabled]=\"!visibleStartBtn\">Start</button> \n  </div>\n</div>\n<div class=\"row justify-content-center\">\n  <div class=\"col-sm-8\">\n    <p>atleast 2 players should participate to start the game</p>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -606,6 +520,7 @@ var PlayersListComponent = /** @class */ (function () {
         this.playersListService = playersListService;
         this.routes = routes;
         this.selfClass = false;
+        this.visibleStartBtn = false;
     }
     PlayersListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -617,12 +532,15 @@ var PlayersListComponent = /** @class */ (function () {
                     _this.selfClass = true;
                 }
             });
+            if (_this.players.length > 1) {
+                _this.visibleStartBtn = true;
+            }
         });
         this.playersListService.socket.on('startGame', function () {
             setTimeout(function () {
                 console.log('game started');
                 _this.routes.navigate(['game-play']);
-            }, 1500);
+            }, 500);
         });
     };
     PlayersListComponent.prototype.onStart = function () {
@@ -631,7 +549,6 @@ var PlayersListComponent = /** @class */ (function () {
             var status;
             if (obj.id === _this.playersListService.socket.id) {
                 obj.status = 'started';
-                console.log(JSON.stringify(_this.players));
                 _this.playersListService.socket.emit('onStart', _this.players);
             }
         });
@@ -806,7 +723,7 @@ module.exports = ""
 /***/ "./src/app/scorecard/scorecard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-8\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" >\n        {{ player.username }}\n        <span class=\"badge badge-primary badge-pill\">{{ player.score }}</span>\n      </li>\n    </ul>\n    <div class=\"row\" style=\"margin-top: 10px;\">\n      <div class=\"col-sm-6\"><button class=\"btn btn-info btn-block\" (click)=\"refreshScore()\">refresh score</button></div>\n      <div class=\"col-sm-6\"><button class=\"btn btn-success btn-block\" routerLink=\"/login\">replay game</button></div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"row justify-content-center\">\n  <div class=\"col-sm-8\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item d-flex justify-content-between align-items-center\"\n        *ngFor=\"let player of players\" >\n        {{ player?.username }}\n        <span class=\"badge badge-primary badge-pill\">{{ player?.score }}</span>\n      </li>\n    </ul>\n    <div class=\"row justify-content-center\" style=\"margin-top: 10px;\">\n      <div class=\"col-sm-6\"><button class=\"btn btn-success btn-block\" routerLink=\"/login\">EXIT</button></div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -833,8 +750,15 @@ var ScorecardComponent = /** @class */ (function () {
         this.playersListService = playersListService;
     }
     ScorecardComponent.prototype.ngOnInit = function () {
-    };
-    ScorecardComponent.prototype.refreshScore = function () {
+        var _this = this;
+        this.playersListService.socket.on('updateScores', function (data) {
+            console.log('in score card before assign: ' + JSON.stringify(data));
+            _this.players = data;
+            console.log('in score card after assign: ' + JSON.stringify(_this.players));
+            setTimeout(function () {
+                _this.playersListService.socket.close();
+            }, 20);
+        });
     };
     ScorecardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

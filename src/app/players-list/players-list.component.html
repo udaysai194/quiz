@@ -10,6 +10,11 @@
         </span>
       </li>
     </ul>
-      <button class="btn btn-outline-success btn-block" (click)="onStart()" >Start</button>
+      <button class="btn btn-outline-success btn-block" (click)="onStart()" [disabled]="!visibleStartBtn">Start</button> 
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-sm-8">
+    <p>atleast 2 players should participate to start the game</p>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayersListService } from '../players-list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  msg: string = '';
+  constructor(private playersListService: PlayersListService) { }
 
   ngOnInit() {
+    this.playersListService.name.subscribe((data) => {
+      this.msg = 'Hi! '+data;
+    });
   }
 
 }

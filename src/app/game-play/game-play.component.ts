@@ -10,14 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./game-play.component.css']
 })
 export class GamePlayComponent implements OnInit {
-  question = {
-    question: ' Which acts like a fastest Switching device ? ',
-    opt1: 'MOSFET',
-    opt2: 'SCR',
-    opt3: 'BT',
-    opt4: 'P-N',
-    ans: 'opt1'
-  };
+  questionNumber: number = 0;
+  question: Question;
+  answer: string = '';
+  time: number = 15;
+  timer: any;
+  score: number = 0;
   togglebtn1: boolean;
   togglebtn2: boolean;
   togglebtn3: boolean;
@@ -29,9 +27,35 @@ export class GamePlayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.question = this.questionsListService.questions[this.questionNumber];
+    this.timer = setInterval(() => {
+      --this.time;
+      if (this.time === 0) {
+        if (this.questionNumber === 9) {
+          clearInterval(this.timer);
+          this.playersListService.socket.emit('updateScore', this.score);
+          this.routes.navigate(['scorecard']);
+        }else{
+          if (this.answer == this.question.ans) {
+            this.score = this.score+1;
+          }else{
+            this.score = this.score;
+          }
+          this.time = 10;
+          ++this.questionNumber;
+          this.question = this.questionsListService.questions[this.questionNumber];
+          this.togglebtn1 = false;
+          this.togglebtn2 = false;
+          this.togglebtn3 = false;
+          this.togglebtn4 = false;
+          this.answer = '';
+        }
+      }
+    }, 1000);
   }
 
   selectedAnswer(ans){
+    this.answer = ans;
     if (ans === 'opt1') {
       this.togglebtn1 = true;
       this.togglebtn2 = false;
