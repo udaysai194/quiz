@@ -80,14 +80,6 @@ export class QuestionsListService {
           ans: 'opt2'
         },
         {
-          question: 'The percentage doesnot evaluate the heights of the person this quote said by the.....? ',
-          opt1: 'William shakespreare',
-          opt2: 'Newton',
-          opt3: 'Sesank Govindaraju',
-          opt4: 'Charles Dickens',
-          ans: 'opt3'
-        },
-        {
           question: ' Who is known as 360 degrees player in the cricket world? ',
           opt1: 'MSD',
           opt2: 'Mithali raj',
